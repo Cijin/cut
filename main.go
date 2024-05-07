@@ -60,6 +60,10 @@ func main() {
 	flag.Parse()
 	fileName := flag.Arg(0)
 
+	if fileName == "" {
+		fileName = os.Stdin.Name()
+	}
+
 	f, err := os.ReadFile(fileName)
 	if err != nil {
 		fmt.Println(err)
